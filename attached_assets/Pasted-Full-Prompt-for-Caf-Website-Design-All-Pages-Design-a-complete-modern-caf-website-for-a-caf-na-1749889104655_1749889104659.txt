@@ -1,0 +1,114 @@
+Full Prompt for Café Website Design (All Pages)
+Design a complete modern café website for a café named “Café.”
+The design should include multiple sections and pages, each with a visually appealing layout, cozy café vibes, elegant fonts, and smooth user experience. Use a warm and inviting color scheme like coffee browns, cream, and pastel tones. Focus on storytelling, minimalism, and customer emotion.
+
+🔹 1. Landing Page (Home)
+Background image: a cup of cappuccino with latte art or cozy café interior
+
+Tagline: “Where every cup is brewed with passion” or “Every sip tells a story”
+
+Overlay text with motivational quotes about coffee and food, like:
+
+“Good food is the foundation of genuine happiness.” — Auguste Escoffier
+“Life begins after coffee.”
+“A café is not just a place, it's a feeling.”
+
+Smooth scroll button: View Menu
+
+Animated steam rising from a cup
+
+Parallax scroll effect and gentle fade-in text animations
+
+Sticky navbar: Home | Menu | About | Reservations | Contact
+
+🔹 2. Menu Page
+Two-column layout: text on left, image on right (alternating)
+
+Sections: Coffee | Tea | Pastries | Snacks | Combos
+
+Elegant menu cards with:
+
+Item name
+
+Price
+
+Small quote/tagline for each (e.g., “Baked fresh, served warm”)
+
+Hover animation: card lifts with a soft shadow and highlights
+
+Filter or tab system for categories
+
+🔹 3. About Us Page
+Big image of the café or the owner with staff
+
+Section title: “Our Story” with content:
+
+Why the café was started
+
+Focus on local ingredients, quality, and experience
+
+Highlight: “What makes us special?”
+
+Icons for: Organic beans, Handmade pastries, Cozy corners, Free Wi-Fi
+
+Carousel or scroll gallery of café interiors
+
+🔹 4. Reservations Page
+Stylish reservation form (Date, Time, Name, People, Contact Info)
+
+Animated calendar and input field transitions
+
+Confirmation message with animation (e.g., a checkmark and message: “Your table is reserved!”)
+
+Optional: Booking time slots and availability checker with backend logic
+
+🔹 5. Contact Page
+Map embed (Google Maps) showing café location
+
+Section titled: “Let’s Have Coffee”
+
+Form: Name, Email, Message
+
+Display phone number, email, working hours
+
+Option for users to subscribe to newsletter (with toast notification)
+
+🔹 6. Footer (Visible on all pages)
+Café logo or icon
+
+Quick links: Home | Menu | Contact | Book Table | Instagram
+
+Social icons with hover glow animation
+
+Tagline: “Crafted with love. Shared with community.”
+
+Newsletter sign-up bar with soft animations
+
+🔹 7. Admin Panel (Optional for Owner)
+Login required
+
+Dashboard to view:
+
+New reservations
+
+Customer inquiries
+
+Edit/update menu items
+
+Clean dark theme or muted palette
+
+UI libraries like Tailwind CSS or Bootstrap suggested
+
+🌟 Technical Notes (for Developers):
+Frontend: HTML5, CSS3, JavaScript / ReactJS (optional)
+
+Styling: TailwindCSS, SCSS, or CSS Modules
+
+Animations: GSAP, AOS (Animate on Scroll), Framer Motion (if React)
+
+Backend: Node.js + Express (optional)
+
+Database: MongoDB (optional)
+
+Final Touch:
+Use serif fonts for headings (like Playfair Display), and soft sans-serif for body (like Lato or Poppins). Combine cozy vibes with clean structure.
