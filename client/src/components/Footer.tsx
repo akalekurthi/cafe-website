@@ -125,9 +125,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-600 pt-8 text-center">
-          <p className="text-gray-300 text-sm">
+          <p className="text-gray-300 text-sm mb-2">
             &copy; 2024 Café. All rights reserved. Made with ❤️ for coffee lovers.
           </p>
+          <div className="text-gray-400 text-xs">
+            <p className="mb-1">Developer Credit:</p>
+            <p>Developed by Kalekurthi Abhishek Reddy</p>
+            <p>Contact: abhishekreddykalekurthi@gmail.com</p>
+          </div>
         </div>
       </div>
     </footer>
