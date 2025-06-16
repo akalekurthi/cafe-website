@@ -12,6 +12,7 @@ import {
   type Newsletter,
   type InsertNewsletter
 } from "@shared/schema";
+import { z } from "zod";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -128,4 +129,39 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// In-memory storage
+const reservations: any[] = [];
+const contacts: any[] = [];
+const newsletters: any[] = [];
+
+export const storage = {
+  // Reservation methods
+  createReservation: async (data: any) => {
+    const reservation = { id: Date.now(), ...data };
+    reservations.push(reservation);
+    return reservation;
+  },
+  getReservations: async () => {
+    return reservations;
+  },
+
+  // Contact methods
+  createContact: async (data: any) => {
+    const contact = { id: Date.now(), ...data };
+    contacts.push(contact);
+    return contact;
+  },
+  getContacts: async () => {
+    return contacts;
+  },
+
+  // Newsletter methods
+  createNewsletter: async (data: any) => {
+    const newsletter = { id: Date.now(), ...data };
+    newsletters.push(newsletter);
+    return newsletter;
+  },
+  getNewsletterByEmail: async (email: string) => {
+    return newsletters.find(n => n.email === email);
+  }
+};
