@@ -1,63 +1,52 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// User Schema
+export const userSchema = z.object({
+  id: z.number(),
+  username: z.string(),
+  password: z.string(),
 });
 
-export const reservations = pgTable("reservations", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  phone: text("phone").notNull(),
-  date: text("date").notNull(),
-  time: text("time").notNull(),
-  partySize: integer("party_size").notNull(),
-  specialRequests: text("special_requests"),
-  createdAt: timestamp("created_at").defaultNow(),
+// Reservation Schema
+export const reservationSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  phone: z.string(),
+  date: z.string(),
+  time: z.string(),
+  partySize: z.number(),
+  specialRequests: z.string().optional(),
+  createdAt: z.date(),
 });
 
-export const contacts = pgTable("contacts", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+// Contact Schema
+export const contactSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email(),
+  message: z.string(),
+  createdAt: z.date(),
 });
 
-export const newsletters = pgTable("newsletters", {
-  id: serial("id").primaryKey(),
-  email: text("email").notNull().unique(),
-  createdAt: timestamp("created_at").defaultNow(),
+// Newsletter Schema
+export const newsletterSchema = z.object({
+  id: z.number(),
+  email: z.string().email(),
+  createdAt: z.date(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
+// Insert Schemas (without id and createdAt)
+export const insertUserSchema = userSchema.omit({ id: true });
+export const insertReservationSchema = reservationSchema.omit({ id: true, createdAt: true });
+export const insertContactSchema = contactSchema.omit({ id: true, createdAt: true });
+export const insertNewsletterSchema = newsletterSchema.omit({ id: true, createdAt: true });
 
-export const insertReservationSchema = createInsertSchema(reservations).omit({
-  id: true,
-  createdAt: true,
-});
-
-export const insertContactSchema = createInsertSchema(contacts).omit({
-  id: true,
-  createdAt: true,
-});
-
-export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
-  id: true,
-  createdAt: true,
-});
-
+// Types
+export type User = z.infer<typeof userSchema>;
 export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type Reservation = z.infer<typeof reservationSchema>;
 export type InsertReservation = z.infer<typeof insertReservationSchema>;
-export type Reservation = typeof reservations.$inferSelect;
+export type Contact = z.infer<typeof contactSchema>;
 export type InsertContact = z.infer<typeof insertContactSchema>;
-export type Contact = typeof contacts.$inferSelect;
+export type Newsletter = z.infer<typeof newsletterSchema>;
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
-export type Newsletter = typeof newsletters.$inferSelect;
